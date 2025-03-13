@@ -54,10 +54,10 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="{% url 'signup' %}">Sign up</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="properties.html">Properties</a></li>
+          <li><a href="#real-estate">Properties</a></li>
           <li><a href="{% url 'agent' %}">Agents</a></li>
-          <li><a href="{% url 'appointment' %}">Make appointment</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'book_appointment' %}">Make appointment</a></li>
+          <li><a class="nav-link" href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -136,12 +136,13 @@
         <div class="row gy-4">
             <h1 class="text-center">Properties on Sale</h1>
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            {% for property in properties %}
+                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="{% static 'static/img/properties/property-1.jpg' %}" alt="" class="img-fluid">
+              <img src="{{ property.image.url }}" alt="" class="img-fluid">
               <div class="card-body">
-                <span class="sale-rent"><a href="property-single.html">Rent | Ksh. 120K</a></span>
-                <h3><a href="{% url 'propertydetails' %}" class="stretched-link">204 Mount Olive Road Two</a></h3>
+                <span class="sale-rent"><a href="{% url 'property_details' property.id %}">View Details | Ksh {{ property.price }}</a></span>
+                <h3><a href="{% url 'property_details' property.id %}" class="stretched-link">{{ property.title }} {{ property.location}}</a></h3>
                 <div class="card-content d-flex flex-column justify-content-center text-center">
                   <div class="row propery-info">
                     <div class="col">Area</div>
@@ -157,128 +158,14 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div><!-- End Property Item -->
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <img src="{% static 'static/img/properties/property-2.jpg' %}" alt="" class="img-fluid">
-              <div class="card-body">
-                <span class="sale-rent">Sale | Ksh. 350k</span>
-                <h3><a href="{% url 'propertydetails' %}" class="stretched-link">647 Molie Road</a></h3>
-                <div class="card-content d-flex flex-column justify-content-center text-center">
-                  <div class="row propery-info">
-                    <div class="col">Area</div>
-                    <div class="col">Beds</div>
-                    <div class="col">Baths</div>
-                    <div class="col">Garages</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">340m2</div>
-                    <div class="col">5</div>
-                    <div class="col">2</div>
-                    <div class="col">1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Property Item -->
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <img src="{% static 'static/img/properties/property-3.jpg' %}" alt="" class="img-fluid">
-              <div class="card-body">
-                <span class="sale-rent">Sale | Ksh. 580k</span>
-                <h3><a href="{% url 'propertydetails' %}" class="stretched-link">711 Avenue Road</a></h3>
-                <div class="card-content d-flex flex-column justify-content-center text-center">
-                  <div class="row propery-info">
-                    <div class="col">Area</div>
-                    <div class="col">Beds</div>
-                    <div class="col">Baths</div>
-                    <div class="col">Garages</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">340m2</div>
-                    <div class="col">5</div>
-                    <div class="col">2</div>
-                    <div class="col">1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Property Item -->
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card">
-              <img src="{% static 'static/img/properties/property-4.jpg' %}" alt="" class="img-fluid">
-              <div class="card-body">
-                <span class="sale-rent">Rent | Ksh. 650k</span>
-                <h3><a href="{% url 'propertydetails' %}" class="stretched-link">117 Milk Road</a></h3>
-                <div class="card-content d-flex flex-column justify-content-center text-center">
-                  <div class="row propery-info">
-                    <div class="col">Area</div>
-                    <div class="col">Beds</div>
-                    <div class="col">Baths</div>
-                    <div class="col">Garages</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">340m2</div>
-                    <div class="col">5</div>
-                    <div class="col">2</div>
-                    <div class="col">1</div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div><!-- End Property Item -->
+          </div>
+            {% endfor %}
+          <!-- End Property Item -->
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="card">
-              <img src="{% static 'static/img/properties/property-5.jpg' %}" alt="" class="img-fluid">
-              <div class="card-body">
-                <span class="sale-rent">Rent | Ksh. 300k</span>
-                <h3><a href="{% url 'propertydetails' %}" class="stretched-link">678 Broad Road</a></h3>
-                <div class="card-content d-flex flex-column justify-content-center text-center">
-                  <div class="row propery-info">
-                    <div class="col">Area</div>
-                    <div class="col">Beds</div>
-                    <div class="col">Baths</div>
-                    <div class="col">Garages</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">340m2</div>
-                    <div class="col">5</div>
-                    <div class="col">2</div>
-                    <div class="col">1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Property Item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="card">
-              <img src="{% static 'static/img/properties/property-6.jpg' %}" alt="" class="img-fluid">
-              <div class="card-body">
-                <span class="sale-rent">Sale | Ksh. 650.000</span>
-                <h3><a href="{% url 'propertydetails' %}" class="stretched-link">974 Denim Road</a></h3>
-                <div class="card-content d-flex flex-column justify-content-center text-center">
-                  <div class="row propery-info">
-                    <div class="col">Area</div>
-                    <div class="col">Beds</div>
-                    <div class="col">Baths</div>
-                    <div class="col">Garages</div>
-                  </div>
-                  <div class="row">
-                    <div class="col">340m2</div>
-                    <div class="col">5</div>
-                    <div class="col">2</div>
-                    <div class="col">1</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Property Item -->
 
         </div>
 
@@ -302,6 +189,7 @@
             </div>
         </div>
     </div>
+
 
 
 
@@ -382,7 +270,7 @@
   <script src="{% static 'static/vendor/purecounter/purecounter_vanilla.js' %}"></script>
 
   <!-- Main JS File -->
-  <script src="{% static 'static/js/main.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
   </main>
 </body>
 

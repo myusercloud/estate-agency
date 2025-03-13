@@ -1,0 +1,25 @@
+{% extends 'starter-page.html' %}
+
+{% block content %}
+<h2>All Appointments</h2>
+
+<div class="card">
+   <div class="cardbody">
+
+   </div>
+   <div class="card-footer">
+       <ul>
+          {% for appointment in appointments %}
+              <li>{{ appointment.client_name }} - {{ appointment.date }} at {{ appointment.time }}
+                 <a href="{% url 'update_appointment' appointment.id %}">Edit</a>
+                  <a href="{% url 'delete_appointment' appointment.id %}">Delete</a>
+              </li>
+          {% endfor %}
+
+       </ul>
+
+   </div>
+</div>
+
+
+{% endblock %}

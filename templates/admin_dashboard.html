@@ -1,0 +1,29 @@
+{% extends 'starter-page.html' %}
+
+{% block content %}
+<h2>Admin Dashboard - Manage Properties</h2>
+
+<a href="{% url 'create_property' %}" class="btn btn-success">Add New Property</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for property in properties %}
+            <tr>
+                <td>{{ property.title }}</td>
+                <td>${{ property.price }}</td>
+                <td>
+                    <a href="{% url 'update_property' property.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_property' property.id %}" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

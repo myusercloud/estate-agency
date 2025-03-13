@@ -1,0 +1,14 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block content %}
+     <div class="card" style="margin-top: 100px; margin-left: 20px; padding: 20px">
+        <h1>THIS IS PROPERTY DETAILS PAGE</h1>
+        <h1>{{ property.title }}</h1>
+        <img src="{{ property.image.url }}" alt="Property Image">
+        <p>{{ property.description }}</p>
+        <p>Location: {{ property.location }}</p>
+        <p>Price: ${{ property.price }}</p>
+
+     </div>
+
+{% endblock %}

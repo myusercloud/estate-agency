@@ -65,6 +65,7 @@
         <form method="POST" action="">
             {% csrf_token %}
             <div class="mb-3">
+                <input type="text" placeholder="Your Name" class="form-control" name="name">
                 <label for="agent" class="form-label">Select an Agent</label>
                 <select class="form-select" id="agent" name="agent" required>
                     <option value="">-- Choose an Agent --</option>

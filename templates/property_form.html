@@ -1,0 +1,13 @@
+{% extends 'starter-page.html' %}
+
+{% block content %}
+  <h2>{% if form.instance.id %}Edit{% else %}Add{% endif %} Property</h2>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Renders the form fields automatically -->
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'property_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
