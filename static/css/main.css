@@ -149,6 +149,7 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  position: fixed;
 }
 
 .header .logo {
@@ -156,12 +157,12 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 32px;
+  max-height: 50px;
   margin-right: 8px;
 }
 
 .header .logo h1 {
-  font-size: 30px;
+  font-size: 40px;
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
