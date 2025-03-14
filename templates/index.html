@@ -28,14 +28,6 @@
   <!-- Main CSS File -->
   <link href="{% static 'static/css/main.css' %}" rel="stylesheet">
 
-
-  <!-- =======================================================
-  * Template Name: EstateAgency
-  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-  * Updated: Aug 09 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -55,8 +47,8 @@
           <li><a href="{% url 'signup' %}">Sign up</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
           <li><a href="#real-estate">Properties</a></li>
-          <li><a href="{% url 'agent' %}">Agents</a></li>
-          <li><a href="{% url 'book_appointment' %}">Make appointment</a></li>
+          <li><a href="{% url 'agents' %}">Agents</a></li>
+          <li><a href="{% url 'appoint' %}">Make appointment</a></li>
           <li><a class="nav-link" href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -81,8 +73,8 @@
             <div>
               <p>Lower Kabete, Nairobi</p>
               <h2><span>204</span> Olive Road</h2>
-              <a href="{% url 'propertydetails' %}" class="btn-get-started me-3">BUY | ksh 8.5 million</a>
-              <a href="{% url 'propertydetails' %}" class="btn-get-started">RENT | ksh 300k pm</a>
+              <a href="{% url 'property_details' %}" class="btn-get-started me-3">BUY | ksh 8.5 million</a>
+              <a href="{% url 'property_details' %}" class="btn-get-started">RENT | ksh 300k pm</a>
             </div>
           </div>
         </div><!-- End Carousel Item -->
@@ -93,8 +85,8 @@
             <div>
               <p>Karen, Nairobi</p>
               <h2><span>247</span> Venda Road </h2>
-              <a href="{% url 'propertydetails' %}" class="btn-get-started me-3">BUY | ksh 8.5 million</a>
-              <a href="{% url 'propertydetails' %}" class="btn-get-started">RENT | ksh 300k pm</a>
+              <a href="{% url 'property_details' %}" class="btn-get-started me-3">BUY | ksh 8.5 million</a>
+              <a href="{% url 'property_details' %}" class="btn-get-started">RENT | ksh 300k pm</a>
             </div>
           </div>
         </div><!-- End Carousel Item -->
@@ -105,8 +97,8 @@
             <div>
               <p>Runda, Nairobi</p>
               <h2><span>247</span> Vitra Road</h2>
-                <a href="{% url 'propertydetails' %}" class="btn-get-started me-3">BUY | ksh 8.5 million</a>
-                <a href="{% url 'propertydetails' %}" class="btn-get-started">RENT | ksh 300k pm</a>
+                <a href="{% url 'property_details' %}" class="btn-get-started me-3">BUY | ksh 8.5 million</a>
+                <a href="{% url 'property_details' %}" class="btn-get-started">RENT | ksh 300k pm</a>
             </div>
           </div>
         </div><!-- End Carousel Item -->

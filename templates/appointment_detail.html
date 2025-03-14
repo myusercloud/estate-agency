@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Appointment Details</title>
+    {% load static %}
+</head>
+<body>
+    <h2>Appointment Details</h2>
+    <p><strong>Name:</strong> {{ appointment.name }}</p>
+    <p><strong>Agent:</strong> {{ appointment.agent }}</p>
+    <p><strong>Date:</strong> {{ appointment.date }}</p>
+    <p><strong>Time:</strong> {{ appointment.time }}</p>
+
+
+    <a href="{% url 'appointment_update' appointment.pk %}">Edit</a>
+    <a href="{% url 'appointment_delete' appointment.pk %}">Delete</a>
+    <a href="{% url 'appointment_list' %}">Back to Appointments</a>
+</body>
+</html>

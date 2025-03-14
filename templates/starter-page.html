@@ -53,9 +53,10 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="{% url 'signup' %}">Sign up</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="{% url 'agent' %}">Agents</a></li>
-          <li><a href="{% url 'appointment' %}">Make appointment</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#real-estate">Properties</a></li>
+          <li><a href="{% url 'agents' %}">Agents</a></li>
+          <li><a href="{% url 'appoint' %}">Make appointment</a></li>
+          <li><a class="nav-link" href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
