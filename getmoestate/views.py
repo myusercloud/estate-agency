@@ -31,7 +31,7 @@ def appoint(request):
 
     return render(request, 'appoint.html', {'form': form})
 
-def property_details(request):
+def property_single(request):
     return render(request, 'property-single.html'),
 
 # List all appointments
@@ -75,5 +75,7 @@ def appointment_detail(request, pk):
     appointment = get_object_or_404(Appointment, pk=pk)
     return render(request, 'appointment_detail.html', {'appointment': appointment})
 
+def contact(request):
+    return render(request,'contact.html')
 
 

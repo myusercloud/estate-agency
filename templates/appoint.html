@@ -38,15 +38,15 @@
             </div>
         </div>
 
-        <form action="/create/" method="POST" class="mt-3">
+        <form method="POST">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" required="required">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" required="required">
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone</label>
@@ -54,19 +54,19 @@
             </div>
             <div class="mb-3">
                 <label for="agent" class="form-label">Select an Agent</label>
-                <select class="form-select" id="agent" name="agent">
-                    <option value="John Doe">John Doe</option>
+                <select class="form-select" id="agent" name="agent" required="required">
+                    <option value="John Doe" class="deactivate">John Doe</option>
                     <option value="Jane Smith">Jane Smith</option>
                     <option value="Mike Johnson">Mike Johnson</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="date" class="form-label">Select Date</label>
-                <input type="date" class="form-control" id="date" name="date" required>
+                <input type="date" class="form-control" id="date" name="date" required="required">
             </div>
             <div class="mb-3">
                 <label for="time" class="form-label">Select Time</label>
-                <input type="time" class="form-control" id="time" name="time" required>
+                <input type="time" class="form-control" id="time" name="time" required="required">
             </div>
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
