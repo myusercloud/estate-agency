@@ -1,0 +1,23 @@
+{% extends 'starter-page.html' %}
+
+{% block content %}
+<h2 class="text-center">Transaction History</h2>
+<table border="1" class="table table-bordered container">
+    <tr>
+        <th>Phone Number</th>
+        <th>Amount</th>
+        <th>Transaction ID</th>
+        <th>Status</th>
+        <th>Date</th>
+    </tr>
+    {% for transaction in transactions %}
+    <tr>
+        <td>{{ transaction.phone_number }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.transaction_id }}</td>
+        <td>{{ transaction.status }}</td>
+        <td>{{ transaction.date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

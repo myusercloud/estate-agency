@@ -1,0 +1,61 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add your custom styles if needed -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            width: 100%;
+            padding: 10px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add Property</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-custom">Add Property</button>
+        </form>
+        <div class="back-link">
+            <a href="{% url 'admin_dashboard' %}" class="btn btn-link">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS (optional, for interactive elements) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}

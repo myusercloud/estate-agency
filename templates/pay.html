@@ -1,0 +1,50 @@
+{% extends 'starter-page.html' %}
+
+{% block content %}
+
+<!-- Ensure Bootstrap and Font Awesome are included in your base template -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4"><i class="fas fa-money-bill-wave text-primary"></i> Make a Payment</h2>
+
+                    <form method="post" action="{% url 'stk' %}">
+                        {% csrf_token %}
+
+                        <!-- Phone Number Field with Icon -->
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="number" class="form-control" id="phone" name="phone" value="254" placeholder="Enter Phone Number" required>
+                            </div>
+                        </div>
+
+                        <!-- Amount Field with Icon -->
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-coins"></i></span>
+                                <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter Amount" required>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button with Icon -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-paper-plane"></i> Submit Payment
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

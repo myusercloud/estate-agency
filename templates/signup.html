@@ -61,7 +61,7 @@
 
                 <input type="password" placeholder="Confirm password" class="form-control" id="confirm-password" name="confirm_password" required>
             </div>
-            <button type="submit" class="btn btn-custom w-100">Sign Up</button>
+            <button type="submit" class="btn btn-custom w-100"><a href="{% url 'login' %}" style="text-decoration: none; color: black">signup</a></button>
             <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}" class="text-success">Login</a></p>
         </form>
     </div>

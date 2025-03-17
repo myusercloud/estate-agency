@@ -1,29 +1,53 @@
 {% extends 'starter-page.html' %}
-
+{% load static %}
 {% block content %}
-<h2>Admin Dashboard - Manage Properties</h2>
+<body>
+<br><br><br><br><br>
+    <h2>Admin Dashboard</h2>
+    <a href="{% url 'add_property' %}" class="text-center">Add New Property</a>
+
+
+ <div class="container">
+   <div class="d-flex gap-5 flex-wrap">
+   {% for property in properties %}
+
+        <div class="card w-30 shadow-lg p-3">
+          <p><strong>
+         {% if property.image %}
+                <img src="{{ property.image.url }}" width="150">
+                {% else %}
+                No Image
+                {% endif %}</strong></p>
+        <p class="text-primary fw-bold">{{ property.title }}</p>
+        <p><strong>Description:</strong> {{ property.description }}</p>
+        <p><strong>Price:</strong> Ksh.{{ property.price }}</p>
+        <p><strong>Location:</strong> {{ property.location }}</p>
+
+            <a href="/edit/{{ property.id }}" class="me-5 text-warning">
+                <i class="bi bi-pencil"></i>Edit
+            </a>
+            <a href="/delete/{{ property.id }}" class="text-danger ">
+                <i class="bi bi-trash"></i>Delete
+            </a>
+
+            <a href="{% url 'pay' %}" class="text-success">
+                    <i class="bi bi-credit-card"></i>Pay
+                </a>
 
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for property in properties %}
-            <tr>
-                <td>{{ property.title }}</td>
-                <td>${{ property.price }}</td>
-                <td>
-                    <a href="{% url 'update_property' property.id %}" class="btn btn-primary">Edit</a>
-                    <a href="{% url 'delete_property' property.id %}" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+
+        </div>
+
+    {% endfor %}
+   </div>
+  </div>
+
+
+
+
+
+
+
+
 {% endblock %}
